@@ -33,8 +33,19 @@ const loraSchema = new mongoose.Schema({
     payload_raw: {
         type: String,
         required: true
+    },
+    payload_fields: {
+        type: Object,
+        required: true
+    },
+    metadata: {
+        type: Object,
+        required: true
+    },
+    downlink_url: {
+        type: String,
+        required: true
     }
-
 })
 
 // Create a model
