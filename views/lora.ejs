@@ -17,7 +17,7 @@
         </form>
         <ul>
             <% for(var i=0; i < loramodels.length; i++) { %>
-                <li><%= loramodels[i].app_id %></li>
+                <li><%= loramodels.payload_fields[i].app_id %></li>
             <% } %>
         </ul>
 </html>
