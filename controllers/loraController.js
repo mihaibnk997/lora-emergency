@@ -18,10 +18,21 @@ const loraSchema = new mongoose.Schema({
         type: String,
         required:true
     },
-    date: {
-        type: Date,
-        required: true,
-        default: Date.now
+    hardware_serial: {
+        type: String,
+        required: true
+    },
+    port: {
+        type: Number,
+        required: true
+    },
+    counter: {
+        type: Number,
+        required: true
+    },
+    payload_raw: {
+        type: String,
+        required: true
     }
 
 })
