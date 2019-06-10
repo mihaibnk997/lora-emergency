@@ -66,7 +66,7 @@ app.get('/lora', (req, res) => {
     // Get data from mongdo db and pass it to view
     loraModel.find({}, (err, data) =>{
         if (err) throw err
-        console.log("My data " + data.payload_fields)
+        console.log("My data " + JSON.stringify(data))
         console.log("My dev_id "+ data.dev_id)
         res.render('lora', {loramodels: data})
     })
