@@ -68,7 +68,7 @@ app.get('/lora', (req, res) => {
         if (err) throw err
         console.log("My data " + JSON.stringify(data))
         console.log("My dev_id "+ data.dev_id)
-        res.render('lora', {loramodels: data})
+        res.render('lora', {loramodels: stringify(data)})
     })
 })
 
