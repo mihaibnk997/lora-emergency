@@ -90,4 +90,8 @@ app.delete('/lora/:item', (req, res) => {
     })
 })
 
+app.get('/shop', (req, res) => {
+    res.render('shop')
+})
+
 }
