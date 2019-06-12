@@ -5,6 +5,7 @@
     src="https://code.jquery.com/jquery-3.2.1.min.js"
     integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
     crossorigin="anonymous"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <script src="/assets/todo-list.js"></script>
     <link href="/assets/styles.css" rel="stylesheet" type="text/css" />
 </head>
@@ -17,7 +18,44 @@
         </form>
         <ul>
             <% for(var i=0; i < loramodels.length; i++) { %>
-                <li><%= loramodels[i].dev_id%></li>
+                <li><%= loramodels[i].payload_fields && loramodels[i].payload_fields.temperature%></li>
             <% } %>
         </ul>
+        </div>
+        
+        <div class="wrapper">
+
+        <div id = "chart"></div>
+
+        <script>
+            alert(Math.random())
+            function getData() {
+                return Math.random();
+            }
+
+            Plotly.plot('chart', [{
+                y:[getData()],
+                type:'scatter'
+            }]);
+
+            let cnt = 0;
+
+            setInterval(() => {
+
+                Plotly.extendTraces('chart', {y:[[getData()]]}, [0]);
+                cnt ++;
+
+                if(cnt > 500) {
+                    Plotly.relayout('chart', {
+                        xaxis: {
+                            range: [cnt-500, cnt]
+                        }
+                    })
+                }
+
+            }, 20);
+
+        </script>
+
+    </div>
 </html>

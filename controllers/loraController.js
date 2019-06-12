@@ -67,7 +67,42 @@ app.get('/lora', (req, res) => {
     loraModel.find({}, (err, data) =>{
         if (err) throw err
         //console.log("My data " + JSON.stringify(data))
-        console.log("My dev_id "+ data.dev_id)
+        //console.log("My dev_id "+ data.dev_id)
+        let x = JSON.stringify(data[2])
+        console.log(x)
+
+        let temp= [];
+        let timeX = [];
+        let i = -1;
+        data.forEach( (item) => {
+            temp[i] = (item.payload_fields && item.payload_fields.temperature)
+            i++;
+        })
+
+        i = -1;
+        data.forEach( (item) => {
+            timeX[i] = (item.metadata && item.metadata.time)
+            i++;
+        })
+
+        var plotly = require('plotly')("mihai.banica97", "5EGFZdDzucGWsh1D8jTS")
+
+
+        var dataGraph = [
+        {
+            x: timeX,
+            y: temp,
+            type: "scatter"
+        }
+        ];
+        var graphOptions = {filename: "date-axes", fileopt: "overwrite"};
+        plotly.plot(dataGraph, graphOptions, function (err, msg) {
+            console.log(msg);
+        });
+
+         data.forEach( (item) => {
+             console.log(item.payload_fields && item.payload_fields.temperature)
+         })
         res.render('lora', {loramodels: data})
     })
 })
