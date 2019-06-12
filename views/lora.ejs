@@ -12,13 +12,14 @@
 <body>
 <h1> My Todo List</h1>
     <div id="todo-table">
-        <%<form action = graph_url> %>
+        <form>
             <input type="text" name = "item" placeholder = "Add new item..." required />
             <button type = "submit"> APASA AICI </button>
         </form>
+        <h2 align="center"> Temperaturile </h4>
         <ul>
             <% for(var i=0; i < loramodels.length; i++) { %>
-                <li><%= loramodels[i].payload_fields && loramodels[i].payload_fields.temperature%></li>
+                <li> <a href="https://plot.ly/~mihai.banica97/2">Grafice</a><%= loramodels[i].payload_fields && loramodels[i].payload_fields.temperature%></li>
             <% } %>
         </ul>
         <button>
@@ -29,7 +30,6 @@
         <div id = "chart"></div>
 
         <script>
-            alert(Math.random())
             function getData() {
                 return Math.random();
             }

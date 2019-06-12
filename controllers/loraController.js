@@ -105,18 +105,22 @@ app.get('/lora', (req, res) => {
         }
 
         var dataGraph = [trace1_temp, trace2_dist]
+        var graph_url
 
         var graphOptions = {filename: "date-axes", fileopt: "overwrite"};
         plotly.plot(dataGraph, graphOptions, function (err, msg) {
-            console.log(msg);
+            console.log(msg.url);
+            graph_url = msg.url;
         });
 
          data.forEach( (item) => {
              console.log(item.payload_fields && item.payload_fields.temperature)
          })
+
+         console.log(graph_url)
         res.render('lora', {
             loramodels: data,
-            graph_url: msg.url
+            graph_url: "google.com"
         })
     })
 })
