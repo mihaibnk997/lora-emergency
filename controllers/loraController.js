@@ -109,8 +109,8 @@ app.get('/lora', (req, res) => {
 
         var graphOptions = {filename: "date-axes", fileopt: "overwrite"};
         plotly.plot(dataGraph, graphOptions, function (err, msg) {
-            console.log(msg.url);
-            graph_url = msg.url;
+            //console.log(msg.url);
+            //graph_url = msg.url;
         });
 
          data.forEach( (item) => {

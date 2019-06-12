@@ -25,7 +25,40 @@
         <button>
         </div>
         
-        
+        <div class="wrapper">
+
+        <div id = "chart"></div>
+
+        <script>
+            function getData() {
+                return Math.random();
+            }
+
+            Plotly.plot('chart', [{
+                y:[getData()],
+                type:'scatter'
+            }]);
+
+            let cnt = 0;
+
+            setInterval(() => {
+
+                Plotly.extendTraces('chart', {y:[[getData()]]}, [0]);
+                cnt ++;
+
+                if(cnt > 500) {
+                    Plotly.relayout('chart', {
+                        xaxis: {
+                            range: [cnt-500, cnt]
+                        }
+                    })
+                }
+
+            }, 20);
+
+        </script>
+
+        </div>
     <div>
     <a href="https://plot.ly/~mihai.banica97/2/?share_key=OvgLee7q8SE8ofKTqE6Y1s" target="_blank" title="date-axes" style="display: block; text-align: center;"><img src="https://plot.ly/~mihai.banica97/2.png?share_key=OvgLee7q8SE8ofKTqE6Y1s" alt="date-axes" style="max-width: 100%;width: 600px;"  width="600" onerror="this.onerror=null;this.src='https://plot.ly/404.png';" /></a>
     <script data-plotly="mihai.banica97:2" sharekey-plotly="OvgLee7q8SE8ofKTqE6Y1s" src="https://plot.ly/embed.js" async></script>
