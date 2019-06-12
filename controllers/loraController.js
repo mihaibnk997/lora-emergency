@@ -93,36 +93,19 @@ app.get('/lora', (req, res) => {
         var trace1_temp = {
             x: timeX,
             y: temp,
-            type: "scatter"
+            type: "scatter",
+            name = "Temperature"
         }
 
         var trace2_dist = {
             x: timeX,
             y: dist,
-            type: "scatter"
+            type: "scatter",
+            name = "Distance"
         }
 
         var dataGraph = [trace1_temp, trace2_dist]
 
-        var layout = {
-            title: "Plot Title",
-            xaxis: {
-              title: "Time",
-              titlefont: {
-                family: "Courier New, monospace",
-                size: 18,
-                color: "#7f7f7f"
-              }
-            },
-            yaxis: {
-              title: "y Axis",
-              titlefont: {
-                family: "Courier New, monospace",
-                size: 18,
-                color: "#7f7f7f"
-              }
-            }
-        };
         var graphOptions = {filename: "date-axes", fileopt: "overwrite"};
         plotly.plot(dataGraph, graphOptions, function (err, msg) {
             console.log(msg);
@@ -131,7 +114,10 @@ app.get('/lora', (req, res) => {
          data.forEach( (item) => {
              console.log(item.payload_fields && item.payload_fields.temperature)
          })
-        res.render('lora', {loramodels: data})
+        res.render('lora', {
+            loramodels: data,
+            graph_url: msg.url
+        })
     })
 })
 

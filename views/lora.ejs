@@ -12,15 +12,16 @@
 <body>
 <h1> My Todo List</h1>
     <div id="todo-table">
-        <form>
+        <%<form action = graph_url> %>
             <input type="text" name = "item" placeholder = "Add new item..." required />
-            <button type = "submit"> Add Item </button>
+            <button type = "submit"> APASA AICI </button>
         </form>
         <ul>
             <% for(var i=0; i < loramodels.length; i++) { %>
                 <li><%= loramodels[i].payload_fields && loramodels[i].payload_fields.temperature%></li>
             <% } %>
         </ul>
+        <button>
         </div>
         
         <div class="wrapper">
