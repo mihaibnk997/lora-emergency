@@ -90,21 +90,41 @@ app.get('/lora', (req, res) => {
         var plotly = require('plotly')("mihai.banica97", "5EGFZdDzucGWsh1D8jTS")
 
 
-        var trace1_temp = [
-        {
+        var trace1_temp = {
             x: timeX,
             y: temp,
             type: "scatter"
         }
-        ]
 
         var trace2_dist = {
             x: timeX,
             y: dist,
             type: "scatter"
         }
+
+        var dataGraph = [trace1_temp, trace2_dist]
+
+        var layout = {
+            title: "Plot Title",
+            xaxis: {
+              title: "Time",
+              titlefont: {
+                family: "Courier New, monospace",
+                size: 18,
+                color: "#7f7f7f"
+              }
+            },
+            yaxis: {
+              title: "y Axis",
+              titlefont: {
+                family: "Courier New, monospace",
+                size: 18,
+                color: "#7f7f7f"
+              }
+            }
+        };
         var graphOptions = {filename: "date-axes", fileopt: "overwrite"};
-        plotly.plot(trace2_dist, graphOptions, function (err, msg) {
+        plotly.plot(dataGraph, graphOptions, function (err, msg) {
             console.log(msg);
         });
 
