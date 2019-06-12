@@ -96,6 +96,7 @@ app.get('/lora', (req, res) => {
             y: temp,
             type: "scatter"
         }
+        ]
 
         var trace2_dist = {
             x: timeX,
