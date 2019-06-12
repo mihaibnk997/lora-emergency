@@ -94,14 +94,14 @@ app.get('/lora', (req, res) => {
             x: timeX,
             y: temp,
             type: "scatter",
-            name = "Temperature"
+            name: "Temperature"
         }
 
         var trace2_dist = {
             x: timeX,
             y: dist,
             type: "scatter",
-            name = "Distance"
+            name: "Distance"
         }
 
         var dataGraph = [trace1_temp, trace2_dist]
