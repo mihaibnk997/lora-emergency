@@ -68,14 +68,16 @@ app.get('/lora', (req, res) => {
         if (err) throw err
         //console.log("My data " + JSON.stringify(data))
         //console.log("My dev_id "+ data.dev_id)
-        let x = JSON.stringify(data[2])
-        console.log(x)
+        //let x = JSON.stringify(data[2])
+        //console.log(x)
 
         let temp= [];
+        let dist= [];
         let timeX = [];
         let i = -1;
         data.forEach( (item) => {
             temp[i] = (item.payload_fields && item.payload_fields.temperature)
+            dist[i] = (item.payload_fields && item.payload_fields.distance)
             i++;
         })
 
@@ -88,15 +90,20 @@ app.get('/lora', (req, res) => {
         var plotly = require('plotly')("mihai.banica97", "5EGFZdDzucGWsh1D8jTS")
 
 
-        var dataGraph = [
+        var trace1_temp = [
         {
             x: timeX,
             y: temp,
             type: "scatter"
         }
-        ];
+
+        var trace2_dist = {
+            x: timeX,
+            y: dist,
+            type: "scatter"
+        }
         var graphOptions = {filename: "date-axes", fileopt: "overwrite"};
-        plotly.plot(dataGraph, graphOptions, function (err, msg) {
+        plotly.plot(trace2_dist, graphOptions, function (err, msg) {
             console.log(msg);
         });
 
