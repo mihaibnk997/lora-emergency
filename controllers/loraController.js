@@ -108,12 +108,12 @@ app.get('/lora', (req, res) => {
 
         var graphOptions = {filename: "date-axes", fileopt: "overwrite"};
         plotly.plot(dataGraph, graphOptions, function (err, msg) {
-            console.log(msg && msg.url);
+            console.log(msg);
             //graph_url = msg.url;
         });
 
          data.forEach( (item) => {
-             console.log(item.payload_fields && item.payload_fields.temperature)
+             //console.log(item.payload_fields && item.payload_fields.temperature)
          })
 
         res.render('lora', {
