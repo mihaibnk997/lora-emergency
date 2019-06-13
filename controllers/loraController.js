@@ -116,10 +116,9 @@ app.get('/lora', (req, res) => {
              console.log(item.payload_fields && item.payload_fields.temperature)
          })
 
-         console.log(graph_url)
         res.render('lora', {
             loramodels: data,
-            graph_url: "google.com"
+            //graph_url: "google.com"
         })
     })
 })
