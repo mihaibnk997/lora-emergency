@@ -87,7 +87,7 @@ app.get('/lora', (req, res) => {
             i++;
         })
 
-        var plotly = require('plotly')("mihai.banica97", "5EGFZdDzucGWsh1D8jTS")
+        plotly = require('plotly')("mihai.banica97", "5EGFZdDzucGWsh1D8jTS")
 
 
         var trace1_temp = {
