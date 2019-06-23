@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<meta http-equiv="refresh" content="5" >
+<head>
+	<title>Monitorizare situatii de urgenta</title>
+	<!-- bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+	<!-- fontawesome -->
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<!-- weather icons -->
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.min.css">
+	<!-- stylesheet -->
+	<link rel="stylesheet" type="text/css" href="assets/main/css/style.css">
+</head>
+<body>
+	<div class="hero">
+		<!-- navbar -->
+		<nav class="navbar">
+		  <a class="navbar-brand" href="#">
+		    <i class="wi wi-cloud-up" aria-hidden="true"></i>
+		    <strong>LoRa</strong> Alert
+		  </a>
+		  <span id="time" class="lead">11:00AM | Mar 3, 2018</span>
+          <span id="date" class="lead">11:00AM | Mar 3, 2018</span>
+		</nav>
+
+		<nav>
+            <ul class="nav-links">
+			<img src="http://international.upb.ro/wp-content/uploads/2018/06/sigla-UPB-transparent.png" style="width:140px;height:140px;">
+                <li ><a class="nav-link" href="<%= tables_1 %>" >Istoric Nod 1</a> </li>
+				<p><a class="nav-link" href="<%= tables_2 %>" >Istoric Nod 2</a> </p>
+                <li ><a class="nav-link" href="<%= graphs %>">Vizualizare grafice</a></li>
+                <li ><a class="nav-link" href="<%= about %>">Despre</a></li>
+				<img src="http://discipline.elcom.pub.ro/saim/index_files/image003.gif" style="width:140px;height:140px;"> 
+            </ul>
+        </nav>
+		<!-- weather section  -->
+		<div class="container">
+			<div class="row">
+				<div id="" class="col-8 mx-auto weather">
+					<!-- weather header section -->
+					<div class="weather-head">
+						<h1 id="location" class="text-center display-4">Bucuresti, RO</h1>
+						<div class="row">							
+							<div id="description" class="description col-6 text-center">
+								<i id="icon-desc" class="wi wi-flood"></i>
+								<p class="desc" >Situatie nivel apa</p>			
+							</div>
+							<div id="temperature" class="col-6 text-center">
+								<% for(var i=loramodels.length - 2; i < loramodels.length; i++) { %>
+									<a>
+										<% if (loramodels[i].dev_id === "lora_1") {%>
+										<%= loramodels[i].payload_fields && loramodels[i].payload_fields.temperature%>
+										<i id="icon-thermometer" class="wi wi-thermometer"></i>	
+                                    </a>
+									<% } %>
+									<% } %> 
+									<% for(var i=loramodels.length - 2; i < loramodels.length; i++) { %>
+									<a>
+										<% if (loramodels[i].dev_id === "lora_2") {%>
+										<%= loramodels[i].payload_fields && loramodels[i].payload_fields.temperature%>
+										<i id="icon-thermometer" class="wi wi-thermometer"></i>	
+                                    </a>
+									<% } %>
+									<% } %>   
+									<!--<i id="icon-celsius" class="wi wi-celsius"></i> -->
+                                <!--<i id="icon-thermometer" class="wi wi-thermometer"></i>		-->			
+							</div>	
+						</div>
+						<!-- weather body header -->
+						<div class="weather-body">					
+							<div class="row">
+                            <div class="humidity col-3 text-center">
+									<i class="wi wi-storm-warning"></i><span> Nodul LoRa</span>
+								</div>
+								<div class="humidity col-3 text-center">
+									<i class="wi wi-humidity"></i><span> Umiditate</span>
+								</div>
+								<div class="wind col-3 text-center">
+									<i class="wi wi-strong-wind"></i><span> Distanta pana la apa</span>
+								</div>
+								<div class="visibility col-3 text-center">
+									<i class="fa fa-eye"></i><span> Alerta apa [0->3]</span>
+								</div>				
+							</div>
+							<!-- weather body data -->
+							<div class="row">
+                                <div id="humidity" class="humidity-data col-3 text-center">
+                                <% for(var i=loramodels.length - 2; i < loramodels.length; i++) { %>
+									<p>
+									<% if (loramodels[i].dev_id === "lora_1") {%>
+										<%= loramodels[i].dev_id%>
+									</p>
+									 <% } %>
+                                    <% } %>
+								<% for(var i=loramodels.length - 2; i < loramodels.length; i++) { %>
+									<p>
+									<% if (loramodels[i].dev_id === "lora_2") {%>
+										<%= loramodels[i].dev_id%>
+									</p>
+									 <% } %>
+                                    <% } %>
+								</div>
+								<div id="humidity" class="humidity-data col-3 text-center">
+                                <% for(var i=loramodels.length - 2; i < loramodels.length; i++) { %>
+									<p>
+									<% if (loramodels[i].dev_id === "lora_1") {%>
+                                        <%= loramodels[i].payload_fields && loramodels[i].payload_fields.humidity%>
+									</p>
+									<% } %>
+                                    <% } %>
+								<% for(var i=loramodels.length - 2; i < loramodels.length; i++) { %>
+									<p>
+									<% if (loramodels[i].dev_id === "lora_2") {%>
+                                        <%= loramodels[i].payload_fields && loramodels[i].payload_fields.humidity%>
+									</p>
+									<% } %>
+                                    <% } %>
+								</div>
+								<div id="wind" class="wind-data col-3 text-center">
+									<% for(var i=loramodels.length - 2; i < loramodels.length; i++) { %>
+									<p>
+									<% if (loramodels[i].dev_id === "lora_1") {%>
+                                        <%= loramodels[i].payload_fields && loramodels[i].payload_fields.distance%>
+									</p>
+									<% } %>
+                                    <% } %>
+									<% for(var i=loramodels.length - 2; i < loramodels.length; i++) { %>
+									<p>
+									<% if (loramodels[i].dev_id === "lora_2") {%>
+                                        <%= loramodels[i].payload_fields && loramodels[i].payload_fields.distance%>
+									</p>
+									<% } %>
+                                    <% } %>
+								
+								</div>
+								<div id="visibility" class="degree-data col-3 text-center">
+									<% for(var i=loramodels.length - 2; i < loramodels.length; i++) { %>
+									<p>
+									<% if (loramodels[i].dev_id === "lora_1") {%>
+										<%= loramodels[i].payload_fields && loramodels[i].payload_fields.water_alert%>
+									</p>
+									<% } %>
+                                    <% } %>
+									<% for(var i=loramodels.length - 2; i < loramodels.length; i++) { %>
+									<p>
+									<% if (loramodels[i].dev_id === "lora_2") {%>
+										<%= loramodels[i].payload_fields && loramodels[i].payload_fields.water_alert%>
+									</p>
+									<% } %>
+                                    <% } %>
+								</div>
+							</div>
+						</div>						
+					</div>					
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- javascript file -->
+    <script >
+    window.onload = function() {
+	//variables
+    var currentDate = new Date();
+    var dayNight = "day";	
+    
+    var today = new Date();
+    var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+    var dateTime =time;
+
+	//setting the date
+	var dateElem = document.getElementById("date");
+    dateElem.innerHTML = currentDate.toDateString();
+    
+    var timeElem = document.getElementById("time");
+	timeElem.innerHTML = dateTime;
+	var a = <%= waMean %>;
+	var last_a = <%= waLast %>;
+	console.log(last_a);
+	if( a > 0.3 || last_a > 0) {
+		alert('ALERTA, veti fi redirectionat');
+		window.location.replace("danger");
+	}
+	}
+    </script>
+
+</body>
+</html>

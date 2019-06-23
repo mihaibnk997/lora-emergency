@@ -57,11 +57,12 @@ nav {
 }
 
 .presentation {
-    display: flex;
+    /*display: flex; */
     width: 90%;
     margin: auto;
     min-height: 80vh;
     align-items: center;
+    background: lightblue
 }
 
 .introduction {
