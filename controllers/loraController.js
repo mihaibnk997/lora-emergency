@@ -113,7 +113,7 @@ app.get('/main', (req, res) => {
     })
 })
 
-app.post('/lora', jsonParser, (req, res) => {
+app.post('/main', jsonParser, (req, res) => {
     // Get data from the view and add it to mongodb
     let newloraModel = loraModel(req.body).save( (err,data) =>{
         if (err) throw err
