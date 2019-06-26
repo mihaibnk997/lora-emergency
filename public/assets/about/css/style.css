@@ -6,6 +6,12 @@
 
 body {
     font-family: 'Poppins', sans-serif;
+    background-image: url("https://i2.wp.com/cftaft.com/wp-content/uploads/2016/03/white-background-wallpaper-2956247.jpg?ssl=1");
+	min-height: 100vh;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	margin: 0 auto;
 }
 
 button {
@@ -103,16 +109,16 @@ nav {
 .intro-text h1 {
     font-size: 36px;
     font-weight: 500;
-    background: linear-gradient(to right, #152d7c, #595a69);
+    background: linear-gradient(to right, #053266, #000000);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-align: center;
 }
 
 .intro-text h2 {
-    font-size: 30px;
+    font-size: 28px;
     font-weight: 500;
-    background: linear-gradient(to right, #070707, #6f6f89);
+    background: linear-gradient(to right, #070707, #131325);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-align: center;
@@ -121,7 +127,7 @@ nav {
 .intro-text p {
     margin-top: 5px;
     font-size: 22px;
-    color: #585752;
+    color: #000000;
     text-align: justify;
     text-indent: 2em;
 }

@@ -340,9 +340,10 @@ nav {
 }
 
 .nav-link {
-  color: #5f5f79;
-  font-size: 18px;
-  text-decoration: none;
+
+  color: rgb(26, 23, 23);
+  font-size: 22px;
+	text-decoration: none;
 }
 
 .cart {

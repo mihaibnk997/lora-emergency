@@ -2,7 +2,7 @@
 <html>
 <body>
 <head>
-    <link rel="stylesheet" type="text/css" href="assets/graphs/css/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/about/css/style.css">
     
 </head>
 <body>
@@ -16,13 +16,33 @@
         <nav>
 		  </a>
             <ul class="nav-links">
-                <li ><a class="nav-link" href="">Generare grafice</a></li>
-                <li ><a class="nav-link" href="">Istoric nod 1</a></li>
-                <li ><a class="nav-link" href="">Istoric nod 2</a></li>
+                <li ><a class="nav-link" href="<%= graphs %>">Grafice</a></li>
+                <li ><a class="nav-link" href="<%= tables_1 %>">Istoric nod 1</a></li>
+                <li ><a class="nav-link" href="<%= tables_2 %>">Istoric nod 2</a></li>
                 <li ><a class="nav-link" href="<%= main %>">Pagina principala</a></li>
             </ul>
         </nav>
     </header>
+    <main>
+        <section class="presentation">
+            <div class="introduction">
+                <div class="intro-text">
+                    <h1>Sistem integrat de monitorizare și prevenție a situațiilor de urgență folosind tehnologia LoRa</h1>
+                    <br>
+                    <br>
+                    <h2> Un proiect realizat de Bănică Mihai Valentin, 441B-ELA, ETTI </h2>
+                    <h2> -Sub indrumarea profesorului coordonator Ş. L. Dr. Ing. Mădălin FRUNZETE-</h2>
+                    <br>
+                    <br>
+                    <p> Lucrarea are ca scop realizarea unui sistem de detecție a unor situații de urgență, cât și o prevenție a acestora, proiectul fiind bazat pe o comunicare într-o rețea LoRaWAN. Marele avantaj al acestui tip de comuncație este faptul că se pot transmite date utile pe distanțe de ordinul kilometrilor fără a avea acces la internet, și cu un consum de energie foarte scăzut.
+                    </p>
+                    <p> Rețeaua va fi compusă din noduri LoRa, cât și o stație de bază la care se vor conecta și vor transmite date nodurile aferente. O aplicație a acestui sistem constă în prevenirea inundațiilor folosindu-se de datele achiziționate privind volumul de apă/nivelul acestuia.
+                    </p>
+                    <p> Un nod va fi compus dintr-o placă de dezvoltare, un modul de transmisie LoRa, o antenă, cât și senzori ce țin de aplicația vizată (prevenirea inundațiilor) precum senzor de detecție al apei, senzor cu ultrasunete pentru observarea nivelului de apă, senzor de umiditate. Se va realiza o achiziție la nivel local a datelor de la senzori, care urmează să fie prelucrate, și transmise folosind modulul LoRa către stația de bază. În final, se va realiza o decodare și o analiză a pachetului de date transmis.
+                    </p>
+                    <p> Întregul sistem integrat va cuprinde și o aplicație WEB unde se pot monitoriza toți parametrii ce ne interesează de la cele 2 noduri, cu un istoric complet, cât și avertizări în caz de eventualele pericole detectate. Această aplicație face subiectul capitolului următor.
+                    </p>
+                </div>
 
 </body>
 </html>
