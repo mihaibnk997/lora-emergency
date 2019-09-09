@@ -20,8 +20,8 @@
 		    <i class="wi wi-cloud-up" aria-hidden="true"></i>
 		    <strong>LoRa</strong> Alert
 		  </a>
-		  <span id="time" class="lead">11:00AM | Mar 3, 2018</span>
-          <span id="date" class="lead">11:00AM | Mar 3, 2018</span>
+		  <span id="time" class="lead">ora/data</span>
+          <span id="date" class="lead">ora/data</span>
 		</nav>
 
 		<nav>
@@ -174,11 +174,11 @@
     
     var timeElem = document.getElementById("time");
 	timeElem.innerHTML = dateTime;
-	//var a = <%= waMean %>;
-	//var last_a = <%= waLast %>;
+	var a = <%= waMean %>;
+	var last_a = <%= waLast %>;
 	//console.log(last_a);
-	// if( a > 0.3 || last_a > 0) {
-	// 	alert('ALERTA, veti fi redirectionat');
+	 if( a > 0.3 || last_a > 0) {
+	 	alert('ALERTĂ, o situație de urgență a fost detectată');
 	// 	window.location.replace("danger");
 	// }
 	 }

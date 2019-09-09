@@ -51,12 +51,6 @@ const loraSchema = new mongoose.Schema({
 // Create a model
 const loraModel = mongoose.model('loraModel', loraSchema)
 
-// let itemOne = Todo({item: 'cumpara apa'}).save( (err) => {
-//     if (err) throw err
-//     console.log('item saved')
-// })
-
-//let data = [{item: 'get milk'}, {item: 'walk dog'}, {item: 'kick some coding ass'}]
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 var jsonParser = bodyParser.json()
 
@@ -66,10 +60,6 @@ app.get('/main', (req, res) => {
     // Get data from mongdo db and pass it to view
     loraModel.find({}, (err, data) =>{
         if (err) throw err
-        //console.log("My data " + JSON.stringify(data))
-        //console.log("My dev_id "+ data.dev_id)
-        //let x = JSON.stringify(data[2])
-        //console.log(x)
 
         let temp= [];
         let dist= [];
@@ -86,17 +76,6 @@ app.get('/main', (req, res) => {
 
         waMean = waSum / i;
         waLast = waterAlert[i-1];
-        //waLast = 1;
-        // console.log(waterAlert[i-1])
-        // if(waterAlert[i-1] == 0) {
-        //     console.log(i)
-        //     //res.redirect('/danger')
-        // }
-
-        // res.render('lora', {
-        //     loramodels: data,
-        //     //graph_url: "google.com"
-        // })
 
 
         res.render('main', {
@@ -123,13 +102,6 @@ app.post('/main', jsonParser, (req, res) => {
     //data.push(req.body)
 })
 
-app.delete('/lora/:item', (req, res) => {
-    // Delete the requested item from mongodb
-    Todo.find({item: req.params.item.replace(/\-/g, " ")}).deleteOne( (err, data) => {
-        if (err) throw err
-        res.json(data)
-    })
-})
 
 app.get('/about', (req, res) => {
     res.render('about' , {
